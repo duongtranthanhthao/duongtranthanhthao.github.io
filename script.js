@@ -3,25 +3,36 @@ const btn = document.getElementById("musicBtn");
 const icon = document.getElementById("musicIcon");
 const text = document.getElementById("musicText");
 
-// Use a path relative to the actual GitHub Pages page.
-audio.src = new URL("./assets/tusu.mp3", document.baseURI).href;
-audio.load();
-
 btn.addEventListener("click", async () => {
-  if (!audio.paused) {
-    audio.pause();
-    return;
-  }
+    if (audio.paused) {
+        text.textContent = "Đang phát...";
 
-  text.textContent = "Đang tải...";
+        try {
+            await audio.play();
+        } catch (err) {
+            console.error("Lỗi phát nhạc:", err);
+            icon.textContent = "⚠️";
+            text.textContent = "Không phát được nhạc";
+        }
+    } else {
+        audio.pause();
+    }
+});
 
-  try {
-    await audio.play();
-  } catch (err) {
-    console.error(err);
+audio.addEventListener("playing", () => {
+    icon.textContent = "⏸️";
+    text.textContent = "Đang phát";
+});
+
+audio.addEventListener("pause", () => {
+    icon.textContent = "🎵";
+    text.textContent = "Phát nhạc";
+});
+
+audio.addEventListener("error", () => {
+    console.error("Audio error:", audio.error);
     icon.textContent = "⚠️";
-    text.textContent = "Không đọc được file nhạc";
-  }
+    text.textContent = "Lỗi file nhạc";
 });
 
 audio.addEventListener("playing", () => {

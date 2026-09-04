@@ -3,20 +3,42 @@ const btn = document.getElementById("musicBtn");
 const icon = document.getElementById("musicIcon");
 const text = document.getElementById("musicText");
 
+audio.volume = 1.0;
+
 btn.addEventListener("click", async () => {
   if (audio.paused) {
+    text.textContent = "Đang tải...";
     try {
       await audio.play();
       icon.textContent = "⏸️";
       text.textContent = "Đang phát";
-    } catch {
-      text.textContent = "Thêm assets/tusu.mp3";
+    } catch (error) {
+      console.error("Music error:", error);
+      icon.textContent = "⚠️";
+      text.textContent = "Không phát được nhạc";
     }
   } else {
     audio.pause();
     icon.textContent = "🎵";
     text.textContent = "Phát nhạc";
   }
+});
+
+audio.addEventListener("play", () => {
+  icon.textContent = "⏸️";
+  text.textContent = "Đang phát";
+});
+
+audio.addEventListener("pause", () => {
+  if (!audio.ended) {
+    icon.textContent = "🎵";
+    text.textContent = "Phát nhạc";
+  }
+});
+
+audio.addEventListener("error", () => {
+  icon.textContent = "⚠️";
+  text.textContent = "Kiểm tra assets/tusu.mp3";
 });
 
 audio.addEventListener("ended", () => {

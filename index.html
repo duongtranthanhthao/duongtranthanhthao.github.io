@@ -1,69 +1,52 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b12">
-  <title>thanhthao | Link Bio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0b12">
+<title>thanhthao | Link Bio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg"><div class="glow g1"></div><div class="glow g2"></div></div>
+<div class="bg"><div class="glow g1"></div><div class="glow g2"></div></div>
+<main class="card">
+<img class="avatar" src="assets/avatar.jpg" alt="Avatar" onerror="this.style.display='none';document.querySelector('.avatar-placeholder').style.display='grid'">
+<div class="avatar-placeholder">T</div>
+<h1>thanhthao</h1>
+<p class="handle">@thanhthao.isreall</p>
+<p class="bio">Chúc bạn một ngày tốt lành ✨<br>Cảm ơn bạn đã ghé thăm ❤️</p>
 
-  <main class="card">
-    <!-- ===== AVATAR: đổi ảnh tại assets/avatar.jpg ===== -->
-    <img class="avatar" src="assets/avatar.jpg" alt="Avatar"
-         onerror="this.style.display='none';document.querySelector('.avatar-placeholder').style.display='grid'">
-    <div class="avatar-placeholder">T</div>
+<button id="musicBtn" class="music" type="button">
+  <span id="musicIcon">🎵</span>
+  <span id="musicText">Phát nhạc</span>
+  <span>🔊</span>
+</button>
 
-    <h1>thanhthao</h1>
-    <p class="handle">@thanhthao.isreall</p>
-    <p class="bio">Chúc bạn một ngày tốt lành ✨<br>Cảm ơn bạn đã ghé thăm ❤️</p>
+<a class="link" href="https://www.tiktok.com/@thanhthao.isreall?_r=1&_t=ZS-99STA3qctIV" target="_blank" rel="noopener">
+  <span>♪</span> TikTok
+</a>
 
-    <button id="musicBtn" class="music">
-      <span id="musicIcon">🎵</span>
-      <span id="musicText">Phát nhạc</span>
-      <span id="musicVol">🔊</span>
-    </button>
+<section class="donate">
+<h2>Top Donate</h2>
+<div class="donate-row"><b>TOP 1</b><span>---</span><strong>--K</strong></div>
+<div class="donate-row"><b>TOP 2</b><span>---</span><strong>--K</strong></div>
+<div class="donate-row"><b>TOP 3</b><span>---</span><strong>--K</strong></div>
+<div class="donate-row"><b>TOP 4</b><span>---</span><strong>--K</strong></div>
+</section>
 
-    <!-- ===== LINK TIKTOK ===== -->
-    <a class="link" href="https://www.tiktok.com/@thanhthao.isreall?_r=1&_t=ZS-99STA3qctIV" target="_blank" rel="noopener">
-      <span>♪</span> TikTok
-    </a>
+<section class="qr">
+<h2>DONATE ME</h2>
+<p>Ủng hộ mình một chút nếu bạn muốn ❤️</p>
+<img class="qr-image" src="assets/qr.png" alt="QR Donate">
+<small>Quét mã bằng app ngân hàng bất kỳ · VietQR</small>
+</section>
 
-    <!-- Bạn có thể thêm link bằng cách copy mẫu:
-    <a class="link" href="LINK" target="_blank"><span>🔗</span> Tên link</a>
-    -->
+<footer>made by thanhthao</footer>
+</main>
 
-    <section class="donate">
-      <h2>Top Donate</h2>
-      <div class="donate-row"><b>TOP 1</b><span>---</span><strong>--K</strong></div>
-      <div class="donate-row"><b>TOP 2</b><span>---</span><strong>--K</strong></div>
-      <div class="donate-row"><b>TOP 3</b><span>---</span><strong>--K</strong></div>
-      <div class="donate-row"><b>TOP 4</b><span>---</span><strong>--K</strong></div>
-    </section>
-
-    <section class="qr">
-      <h2>DONATE ME</h2>
-      <p>Ủng hộ mình một chút nếu bạn muốn ❤️</p>
-      <img src="assets/qr.png" alt="QR Donate"
-           onerror="this.style.display='none';document.querySelector('.qr-placeholder').style.display='grid'">
-    
-      <small>Quét mã bằng app ngân hàng bất kỳ · VietQR</small>
-    </section>
-
-    <footer>made by thanhthao</footer>
-  </main>
-
-  <!--
-    ===== NHẠC =====
-    File mặc định: assets/tusu.mp3
-    Hãy tự đặt file nhạc bạn có quyền sử dụng vào đúng vị trí này.
-  -->
-  <audio id="audio" loop preload="none">
-    <source src="assets/tusu.mp3" type="audio/mpeg">
-  </audio>
-
-  <script src="script.js"></script>
+<audio id="audio" preload="auto" loop playsinline>
+  <source src="./assets/tusu.mp3" type="audio/mpeg">
+</audio>
+<script src="script.js"></script>
 </body>
 </html>
